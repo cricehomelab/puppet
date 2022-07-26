@@ -1,0 +1,13 @@
+class apache {
+    package {'webserver':
+        ensure => installed,
+        name   => apache2,
+    }
+    file { '/var/www/html/index.html':
+        ensure => file,
+        source => 'puppet:///modules/apache/index.html',
+        owner  => 'root',
+        group  => 'root',
+        mode   => '0644',
+    }
+}
