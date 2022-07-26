@@ -13,3 +13,5 @@ VMs
 1. Puppetmaster server. (ubuntu Server 22.04 LTS)
 2. Agent node 1. (ubuntu Server 22.04 LTS)
 3. Agent node 2. (ubuntu Server 22.04 LTS)
+
+this is a test.
