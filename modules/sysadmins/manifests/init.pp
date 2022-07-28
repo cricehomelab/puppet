@@ -1,3 +1,4 @@
+# this was an excersize in creating a group called 'sysadmins' and adding users to the group with a specific uid.
 class sysadmins {
     group { 'sysadmins':
         ensure => present,

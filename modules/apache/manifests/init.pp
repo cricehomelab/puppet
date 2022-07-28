@@ -1,3 +1,5 @@
+# handles the install and setting a homepage for apache. 
+# this is also the first instance of me attempting to service a file from my puppet master to another device. 
 class apache {
     package {'webserver':
         ensure => installed,
