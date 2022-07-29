@@ -3,7 +3,7 @@
 class apache {
     package {'webserver':
         ensure => installed,
-        name   => apache2,
+        name   => apache2,        
     }
     file { '/var/www/html/index.html':
         ensure  => file,
@@ -11,10 +11,11 @@ class apache {
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
-        replace => false,
+        replace => false,                 # line means that it will not replace the file if not present but will put it there if its lost.
+        require => Package['webserver'],
     }
     service { 'apache2' :
         ensure  => running,
-        require => Package['webserver'],
+        require => Package['webserver'],  # ensures that apache is installed before trying to enforce this. 
     }
 }
