@@ -2,13 +2,13 @@
 node "puppet-agent-ubuntu.example.com" {
     include apache
     include sysadmins
-    include unattended-updates
+    include unattended-upgrades
 }
 # I've been mirroring effort onto this agent just for repitition. 
 node "puppet-agent-ubuntu-2.example.com" {
     include sysadmins
     include apache
-    include unattended-updates
+    include unattended-upgrades
 }
 # this was an experiment to get a base set of things on the first check in. 
 node "default" {
