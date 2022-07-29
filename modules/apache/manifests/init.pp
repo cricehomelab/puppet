@@ -13,7 +13,7 @@ class apache {
         mode    => '0644',
         replace => false,
     }
-    service { 'apache2'
+    service { 'apache2' :
         ensure  => running,
         require => Package['webserver'],
     }
