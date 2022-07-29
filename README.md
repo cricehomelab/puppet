@@ -16,7 +16,8 @@ VMs
 
 Modules folder - contains my puppet modules.
     apache - this is my module that installs apache and sets a default homepage for the index.html.
-    sysadmins - this is my modile that defines a sysadmin group and creates users with defined UIDs assigned to that group.
+    sysadmins - this is my module that defines a sysadmin group and creates users with defined UIDs assigned to that group.
+    unattendedupgrades - module ensures that the packages unattended-upgrades and apt-listupgrades is installed.
 Manifests folder - contains my puppet manifests folder. 
     site.pp - file defining my nodes is in here. 
     
