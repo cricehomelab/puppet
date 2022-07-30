@@ -5,6 +5,9 @@ class apache {
     $service_name = 'apache2'
     $config_file = '/etc/apache2/apache2.conf'
     $index_file = '/var/www/html/index.html'
+    # I see a lot of value from variables, but I also see some cases where this affects readability.
+    # I think readability is affected pretty heavily in this module. 
+    # I can also see how it might be easy to have a "generic" init.pp ready to go for about anything with variables. 
 
     package {'webserver':
         ensure => installed,

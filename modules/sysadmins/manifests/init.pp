@@ -27,4 +27,11 @@ class sysadmins {
         uid    => '9997',
         groups => $group,                  # can use the variable here.
     }
+    # array example
+    $moreusers = ['fred', 'amanda', 'sharon']  # example of array. 
+    # create 3 users, 1 for each member of the array that is above. 
+    user {$users:
+        ensure => present,
+        groups => $group,
+    }
 }
