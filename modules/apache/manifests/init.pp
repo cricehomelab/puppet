@@ -1,13 +1,25 @@
 # handles the install and setting a homepage for apache. 
 # this is also the first instance of me attempting to service a file from my puppet master to another device. 
-class apache {
-    $package_name = 'apache2'
-    $service_name = 'apache2'
-    $config_file = '/etc/apache2/apache2.conf'
-    $index_file = '/var/www/html/index.html'
+class apache {    
+    # case statement to allow additional support for RHEL packages as well as Debian packages for apache. 
+    case $::facts['os']['family']{
+       "Redhat" : {
+        $package_name = 'httpd'
+        $service_name = 'httpd'
+        $config_file  = '/etc/httpd/conf/httpd.conf'
+       }
+       "Debian" : {
+        $package_name = 'apache2'
+        $service_name = 'apache2'
+        $config_file  = '/etc/apache2/apache2.conf'
+       }
+    }
+    $index_file = '/var/www/html/index.html'   
+    
     # I see a lot of value from variables, but I also see some cases where this affects readability.
     # I think readability is affected pretty heavily in this module. 
     # I can also see how it might be easy to have a "generic" init.pp ready to go for about anything with variables. 
+    # The ability to declare variables for modularity seems quite useful and may be worth the tradeoff. 
 
     package {'webserver':
         ensure => installed,

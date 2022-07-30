@@ -10,7 +10,7 @@ class sysadmins {
     $firstname = 'Bob'
     $lastname = 'Smith'
     $comment = "${firstname} ${lastname}"  # example of interpolated variables. 
-    # users i want to add on nodes.
+    # users I want to add on nodes.
     user { 'bob':
         ensure  => present,
         comment => $comment,               # interpolated variable added. 
@@ -34,4 +34,5 @@ class sysadmins {
         ensure => present,
         groups => $group,
     }
+
 }
