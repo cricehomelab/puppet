@@ -1,12 +1,17 @@
 # handles the install and setting a homepage for apache. 
 # this is also the first instance of me attempting to service a file from my puppet master to another device. 
 class apache {
+    $package_name = 'apache2'
+    $service_name = 'apache2'
+    $config_file = '/etc/apache2/apache2.conf'
+    $index_file = '/var/www/html/index.html'
+
     package {'webserver':
         ensure => installed,
-        name   => apache2,        
+        name   => $package_name,        
     } 
     # this is the default page serviced by apache. This is different than the original. 
-    file { '/var/www/html/index.html':
+    file { $index_file:
         ensure  => file,
         source  => 'puppet:///modules/apache/index.html',
         owner   => 'root',                    # user (root in this case) has an implied dependancy for this if root did not exist this could not be applied 
@@ -15,14 +20,14 @@ class apache {
         replace => false,                     # This line means that it will not replace the file if not present but will put it there if its lost.
         require => Package['webserver'],      # ensures that apache is installed before trying to enforce this. 
     }
-    file { '/etc/apache2/apache2.conf':
+    file { $config_file:
         ensure  => file,
         source  => 'puppet:///modules/apache/apache2base.conf',
         require => Package['webserver'],
     }
-    service { 'apache2' :
+    service { $service_name :
         ensure    => running,
         enable    => true,      
-        subscribe => File['/etc/apache2/apache2.conf'],   # Like the require keyword with the addition that the service will restart if the file is changed. 
+        subscribe => File[$config_file],   # Like the require keyword with the addition that the service will restart if the file is changed. 
     }
 }
