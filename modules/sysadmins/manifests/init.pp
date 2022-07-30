@@ -30,7 +30,7 @@ class sysadmins {
     # array example
     $moreusers = ['fred', 'amanda', 'sharon']  # example of array. 
     # create 3 users, 1 for each member of the array that is above. 
-    user {$users:
+    user {$moreusers:
         ensure => present,
         groups => $group,
     }
