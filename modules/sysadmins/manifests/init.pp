@@ -1,7 +1,8 @@
 # this was an excersize in creating a group called 'sysadmins' and adding users to the group with a specific uid.
 class sysadmins {
     # group i want to have created. 
-    group { 'sysadmins':
+    $group = 'sysadmins'
+    group { $group:
         ensure => present,
     }
     # users i want to add on nodes.
