@@ -9,7 +9,7 @@ class sysadmins {
     # Example on Interpolating variables. 
     $firstname = 'Bob'
     $lastname = 'Smith'
-    $comment = "{$firstname} {$lastname}"
+    $comment = "${firstname} ${lastname}"
     # users i want to add on nodes.
     user { 'bob':
         ensure  => present,
