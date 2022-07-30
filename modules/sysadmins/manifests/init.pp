@@ -5,11 +5,17 @@ class sysadmins {
     group { $group:                   # the created variable is now the name of the group
         ensure => present,
     }
+    
+    # Example on Interpolating variables. 
+    $firstname = 'Bob'
+    $lastname = 'Smith'
+    $comment = "{$firstname} {$lastname}"
     # users i want to add on nodes.
     user { 'bob':
-        ensure => present,
-        uid    => '9999',
-        groups => 'sysadmins',       # Implied Dependancy for sysadmins group
+        ensure  => present,
+        comment => $comment,          # interpolated variable added. 
+        uid     => '9999',
+        groups  => 'sysadmins',       # Implied Dependancy for sysadmins group
     }
     user { 'nancy':
         ensure => present,
