@@ -25,5 +25,4 @@ class apache {
         enable    => true,      
         subscribe => File['/etc/apache2/apache2.conf'],   # Like the require keyword with the addition that the service will restart if the file is changed. 
     }
-    
 }
