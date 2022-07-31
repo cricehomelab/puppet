@@ -7,11 +7,13 @@ class apache {
         $package_name = 'httpd'
         $service_name = 'httpd'
         $config_file  = '/etc/httpd/conf/httpd.conf'
+        $static_config = 'puppet:///modules/apache/httpdbase.conf'
        }
        "Debian" : {
         $package_name = 'apache2'
         $service_name = 'apache2'
         $config_file  = '/etc/apache2/apache2.conf'
+        $static_config = 'puppet:///modules/apache/apache2base.conf'
        }
     }
     $index_file = '/var/www/html/index.html'   
@@ -37,7 +39,7 @@ class apache {
     }
     file { $config_file:
         ensure  => file,
-        source  => 'puppet:///modules/apache/apache2base.conf',
+        source  => $static_config,
         require => Package['webserver'],
     }
     service { $service_name :
