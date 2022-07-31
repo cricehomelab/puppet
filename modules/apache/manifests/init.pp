@@ -30,7 +30,7 @@ class apache {
     # this is the default page serviced by apache. This is different than the original. 
     file { $index_file:
         ensure  => file,
-        source  => 'puppet:///modules/apache/index.html',
+        source  => $index_file,
         owner   => 'root',                    # user (root in this case) has an implied dependancy for this if root did not exist this could not be applied 
         group   => 'root',                    # (more important for non root owners...)
         mode    => '0644',
