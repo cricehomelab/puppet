@@ -3,8 +3,11 @@
 Hello!
 This is just a repository I am using to keep track of my code that I have written in studying Puppet. I will add details to this as I grow in my knowledge. 
 
-current setup
+A decent portion of this are based on tutorials in https://www.udemy.com/course/power-puppet/ 
+The original config for my puppet server and nodes is largely thanks to a guide I found in linode's tutorials https://www.linode.com/docs/guides/getting-started-with-puppet-6-1-basic-installation-and-setup/.
 
+
+current setup
 Dell 7010 Desktop 
 32 GB RAM
 Proxmox OS
