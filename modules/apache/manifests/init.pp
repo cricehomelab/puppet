@@ -15,6 +15,9 @@ class apache {
         $config_file  = '/etc/apache2/apache2.conf'
         $static_config = 'puppet:///modules/apache/apache2base.conf'
        }
+       default: {
+        fail('Unknown operating system'),
+       }
     }
     $index_file = '/var/www/html/index.html'   
     
