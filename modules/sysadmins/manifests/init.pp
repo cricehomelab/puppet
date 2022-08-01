@@ -28,7 +28,7 @@ class sysadmins {
         groups => $group,                  # can use the variable here.
     }
     # array example
-    $moreusers = ['fred', 'amanda', 'sharon']  # example of array. 
+    $moreusers = ['austin', 'willy', 'trina']  # example of array. 
     # create 3 users, 1 for each member of the array that is above.
     # using an iterator to create the users and add a .bashrc for the users.      
     $moreusers.each | $u | {
