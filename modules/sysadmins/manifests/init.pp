@@ -33,16 +33,17 @@ class sysadmins {
     # using an iterator to create the users and add a .bashrc for the users.    
     # works on centos7 not on ubuntu....  
     $moreusers.each | $u | {
-        user {$u:
+        user { $u :
             ensure     => present,
             managehome => true,   
         }
-        file { "home/${u}/.bashrc" :
+
+        file { "home/${u}/.bashrc":
             ensure  => file,
             owner   => $u,
             group   => $u,
             content => 'export PATH=$PATH:/opt/puppetlabs/puppet/bin',
-        }    
+        }
     }
     /*
     # old way of doing this 
