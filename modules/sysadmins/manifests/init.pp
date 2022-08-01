@@ -31,7 +31,7 @@ class sysadmins {
     $moreusers = ['fred', 'amanda', 'sharon']  # example of array. 
     # create 3 users, 1 for each member of the array that is above.
     # using an iterator to create the users and add a .bashrc for the users.      
-    $users.each | $u | {
+    $moreusers.each | $u | {
         user {$u:
             ensure     => present,
             managehome => true,   
