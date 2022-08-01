@@ -38,19 +38,20 @@ class sysadmins {
             managehome => true,   
         }
         
+        /*
+        # DOES NOT WORK!
+        # was supposed to create and manage bashrc folder. Error received is below. 
+        # Error: Failed to apply catalog: Parameter path failed on File[home/austin/.bashrc]: File paths must be fully qualified, not 'home/austin/.bashrc' 
+        # (file: /etc/puppetlabs/code/environments/production/modules/sysadmins/manifests/init.pp, line: 41)
         file { "home/${u}/.bashrc":
             ensure  => file,
             owner   => $u,
             group   => $u,
             content => 'export PATH=$PATH:/opt/puppetlabs/puppet/bin',
         }
+        */
     }
     /*
-    # old way of doing this 
-    user {$moreusers:
-        ensure => present,
-        groups => $group,
-    }
-    */
+    
 
 }
