@@ -29,10 +29,26 @@ class sysadmins {
     }
     # array example
     $moreusers = ['fred', 'amanda', 'sharon']  # example of array. 
-    # create 3 users, 1 for each member of the array that is above. 
+    # create 3 users, 1 for each member of the array that is above.
+    # using an iterator to create the users and add a .bashrc for the users.      
+    $users.each | $u | {
+        user {$u:
+            ensure     => present,
+            managehome => true,   
+        }
+        file { "home/${u}/.bashrc" :
+            ensure  => file,
+            owner   => $u,
+            group   => $u,
+            content => 'export PATH=$PATH:/opt/puppetlabs/puppet/bin',
+        }    
+    }
+    /*
+    # old way of doing this 
     user {$moreusers:
         ensure => present,
         groups => $group,
     }
+    */
 
 }
