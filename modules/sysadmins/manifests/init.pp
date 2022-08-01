@@ -30,7 +30,8 @@ class sysadmins {
     # array example
     $moreusers = ['austin', 'willy', 'trina']  # example of array. 
     # create 3 users, 1 for each member of the array that is above.
-    # using an iterator to create the users and add a .bashrc for the users.      
+    # using an iterator to create the users and add a .bashrc for the users.    
+    # works on centos7 not on ubuntu....  
     $moreusers.each | $u | {
         user {$u:
             ensure     => present,
