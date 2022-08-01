@@ -38,7 +38,7 @@ class sysadmins {
             managehome => true,   
         }
         
-        file { 'home/${u}/.bashrc':
+        file { "home/${u}/.bashrc":
             ensure  => file,
             owner   => $u,
             group   => $u,
