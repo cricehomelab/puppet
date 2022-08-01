@@ -13,6 +13,7 @@ node "puppet-agent-ubuntu-2.example.com" {
 # creating a centos node to test my apache module
 node "puppet-agent-centos.example.com" {
     include apache
+    include sysadmins
 }
 # this was an experiment to get a base set of things on the first check in. 
 node "default" {
