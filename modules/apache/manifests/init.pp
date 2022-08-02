@@ -33,11 +33,11 @@ class apache {
     # this is the default page serviced by apache. This is different than the original. 
     file { $index_file:
         ensure  => file,
-        source  => $index_file,
+        source  => 'puppet:///modules/apache/index.html',
         owner   => 'root',                    # user (root in this case) has an implied dependancy for this if root did not exist this could not be applied 
         group   => 'root',                    # (more important for non root owners...)
         mode    => '0644',
-        replace => true,                     # This line means that it will not replace the file if not present but will put it there if its lost.
+        replace => true,                     # This line means that it will not replace the file if not present but will put it there if its lost. (EDIT set to replace 8/2/22)
         require => Package['webserver'],      # ensures that apache is installed before trying to enforce this. 
     }
     file { $config_file:
