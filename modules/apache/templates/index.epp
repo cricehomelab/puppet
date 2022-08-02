@@ -12,9 +12,9 @@
                 <p>Apache was also installed by puppet here!</p>
                 <p>Changed this to add something else to it.</p>
                 <p>Updating this file once more.</p>
-                <p>You are accessing a <%= $os_description -%> server </p>
-                <p>It runs on a <%= $os_family -%>  base </p>
-                <p>The Hostname is <%= $hostname -%> </p>
+                <p>You are accessing a server running: <%= $os_description -%>  </p>
+                <p>The OS is based around: <%= $os_family -%>  </p>
+                <p>The Hostname of the machine is: <%= $hostname -%> </p>
 
         </body>
 </html>
