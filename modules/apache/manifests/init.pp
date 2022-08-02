@@ -37,7 +37,7 @@ class apache {
         owner   => 'root',                    # user (root in this case) has an implied dependancy for this if root did not exist this could not be applied 
         group   => 'root',                    # (more important for non root owners...)
         mode    => '0644',
-        replace => false,                     # This line means that it will not replace the file if not present but will put it there if its lost.
+        replace => true,                     # This line means that it will not replace the file if not present but will put it there if its lost.
         require => Package['webserver'],      # ensures that apache is installed before trying to enforce this. 
     }
     file { $config_file:
