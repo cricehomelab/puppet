@@ -1,6 +1,12 @@
 # handles the install and setting a homepage for apache. 
 # this is also the first instance of me attempting to service a file from my puppet master to another device. 
 class apache {    
+    $params = {
+        "os_description" => $::facts['os']['distro']['description'],
+        "os_family"      => $::facts['os']['family'],
+        "hostname"       => $::facts['hostname'],
+    }
+    
     # case statement to allow additional support for RHEL packages as well as Debian packages for apache. 
     case $::facts['os']['family']{
        "Redhat" : {
@@ -33,11 +39,11 @@ class apache {
     # this is the default page serviced by apache. This is different than the original. 
     file { $index_file:
         ensure  => file,
-        source  => 'puppet:///modules/apache/index.html',
+        content => epp('apache/index.epp', $params),
         owner   => 'root',                    # user (root in this case) has an implied dependancy for this if root did not exist this could not be applied 
         group   => 'root',                    # (more important for non root owners...)
         mode    => '0644',
-        replace => true,                     # This line means that it will not replace the file if not present but will put it there if its lost. (EDIT set to replace 8/2/22)
+        # replace => false,                     # This line means that it will not replace the file if not present but will put it there if its lost. 
         require => Package['webserver'],      # ensures that apache is installed before trying to enforce this. 
     }
     file { $config_file:

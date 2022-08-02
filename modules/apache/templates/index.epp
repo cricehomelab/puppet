@@ -1,0 +1,20 @@
+<% | 
+     String $os_description, 
+     String $os_family, 
+     String $hostname  
+| -%>
+<!DOCTYPE html>
+<html>
+        <body>
+                <h1>Welcome to my custom page!</h1>
+                <p>Hello this file was serviced by puppet...</p>
+                <p>This is running on the Apache Webserver</p>
+                <p>Apache was also installed by puppet here!</p>
+                <p>Changed this to add something else to it.</p>
+                <p>Updating this file once more.</p>
+                <p>You are accessing a <%= $os_description -%> server </p>
+                <p>It runs on a <%= $os_family -%> base </p>
+                <p>The Hostname is <%= $hostname -%> </p>
+
+        </body>
+</html>
