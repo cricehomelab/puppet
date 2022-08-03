@@ -12,12 +12,12 @@ class restartrequired {
       default : {
         fail('Not a Debian OS.')
       }
+    }    
+    exec { 'reboot' : 
+      provider => shell,
+      onlyif   => $file_exists
     }
-    if $file_exists {
-      exec { 'reboot' : 
-        provider => shell,
-      }
-    }
+    
     
 
 }
