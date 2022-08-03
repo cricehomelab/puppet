@@ -17,7 +17,4 @@ class restartrequired {
       provider => shell,
       onlyif   => $file_exists
     }
-    
-    
-
 }
