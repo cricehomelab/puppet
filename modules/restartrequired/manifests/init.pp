@@ -15,6 +15,6 @@ class restartrequired {
     }    
     exec { 'reboot' : 
       provider => shell,
-      onlyif   => $file_exists
+      onlyif   => 'test -f ',
     }
 }
